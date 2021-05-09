@@ -35,12 +35,13 @@ export default function leftPanel(props) {
 
   return (
     <nav className={styles.nav}>
-    
       <div className={styles.desc}>
+        <Link style={{cursor: 'pointer'}} href="/">
           <div className={styles.circle}></div>
-        <h2>Injae Woo</h2>
+        </Link>
+          <h2>Injae Woo</h2>
         <div>
-          <a onClick={()=>{handleClickLinkIcon('https://github.com/wooinjae2')}}> <GitHubIcon style={{fontSize: '20'}}/></a>
+          <a style={{cursor: 'pointer'}}onClick={()=>{handleClickLinkIcon('https://github.com/wooinjae2')}}> <GitHubIcon style={{fontSize: '20'}}/></a>
         </div>
       </div>
 
