@@ -10,3 +10,9 @@
     display: flex;
     flex-direction: row;
 }
+
+@media screen and (max-width: 1000px){
+    .mainItem{
+        flex-direction: column;
+    }
+}
