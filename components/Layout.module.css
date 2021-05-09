@@ -1,0 +1,12 @@
+
+
+.header{
+    background-color: brown;
+    height: 100vh;
+}
+
+
+.mainItem {
+    display: flex;
+    flex-direction: row;
+}
