@@ -4,7 +4,6 @@ import styles from "../styles/Home.module.css";
 function Home(props) {
   let preloadedState;
   if (typeof window !== "undefined") {
-    // eslint-disable-next-line no-underscore-dangle
     preloadedState = window.__NEXT_DATA__.props;
     console.log("asdasd");
     console.log("preloadedState11", preloadedState);
@@ -15,7 +14,6 @@ function Home(props) {
     console.log("renderProps22", preloadedState);
 
     if (props && props.data) {
-      // eslint-disable-next-line react/prop-types
       return <div>{props.data.name}</div>;
     }
     return null;
