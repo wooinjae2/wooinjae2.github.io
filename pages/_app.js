@@ -51,13 +51,13 @@ function MyApp({ Component, pageProps }) {
         };
       }
     });
-
+    
     setMenuList(newMenuList);
   };
   
-  console.log(pageProps);
   return <Layout handleMenuClick={handleMenuClick} menulist={menuList}>
     <Component {...pageProps} />
+    
     </Layout>
 }
 

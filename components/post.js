@@ -1,6 +1,6 @@
 import styles from "./post.module.css";
 
-export default function post(props) {
+export default function Post(props) {
   return (
     <div className={styles.post}>
       <div className={styles.postTitle}>
