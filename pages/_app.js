@@ -1,11 +1,11 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { useState, useEffect } from "react";
-import '../styles/globals.css'
-import Layout from '../components/Layout';
-
+import "../styles/globals.css";
+import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }) {
   const [menuList, setMenuList] = useState([]);
-  console.log('layout render');
+  console.log("layout render");
   useEffect(() => {
     setMenuList([
       {
@@ -43,22 +43,22 @@ function MyApp({ Component, pageProps }) {
               children: menu.children ? [...menu.children] : [],
               active: true,
             };
-      } else {
-        return {
-          name: menu.name,
-          children: menu.children ? [...menu.children] : [],
-          active: false,
-        };
       }
+      return {
+        name: menu.name,
+        children: menu.children ? [...menu.children] : [],
+        active: false,
+      };
     });
-    
+
     setMenuList(newMenuList);
   };
-  
-  return <Layout handleMenuClick={handleMenuClick} menulist={menuList}>
-    <Component {...pageProps} />
-    
+
+  return (
+    <Layout handleMenuClick={handleMenuClick} menulist={menuList}>
+      <Component {...pageProps} />
     </Layout>
+  );
 }
 
-export default MyApp
+export default MyApp;

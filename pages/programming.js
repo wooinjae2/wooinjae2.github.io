@@ -1,6 +1,3 @@
-
-
-export default function programming(){
-    
-    return <div>programming</div>
+export default function programming() {
+  return <div>programming</div>;
 }
