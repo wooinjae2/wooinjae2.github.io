@@ -1,20 +1,39 @@
-import Post from "../../components/post";
+import Post from "../../components/Post";
 
 export default function a(props) {
   console.log(props);
   return (
     <Post
-      title="수많은 디자이너들이 자기 제품을 만들고 싶어해요."
-      refList={["1분 코딩"]}
+      title="CSS position"
+      refList={["제로초 블로그"]}
     >
-      이 글을 읽고 계신 디자이너분들은 현재 회사에 고용되어 클라이언트의 일,
-      또는 우리 회사의 일을 하고 있는 분들이 가장 많을 거에요. 하지만 여러
-      디자이너분들을 만나보니 아주 많은 분들이 나중에는 “내 제품”, “내
-      서비스”같은, 내 새끼를 만들고 싶고 그걸로 먹고 살고 싶어한다는 것을
-      알았어요. 내 제품을 내가 온전히 컨트롤하고 만들어내기 위해서는 코딩을 할
-      줄 아는게 훠어어어얼씬 더 유리할 거라는 건 당연한 이야기겠지요? 이건 연봉
-      인상과 직접적인 관련이 있는 것은 아니지만, 디자이너가 코딩을 할 줄 알면
-      좋은 아주 큰 이유 중 하나지요. 다들 부자되세요!
+      <h3>static</h3> 
+      <p>
+      postion 속성을 주지 않았을 경우 <b>기본값</b>으로
+      1. top, bottom, left, rigth, z-index 속성이 아무런 영향도 주지 않음.
+      </p>
+      <h3>relative</h3> 
+      <p>
+      요소를 일반적인 문서의 흐름에 따라 배치하고, 자기 자신을 기준으로 top, rigth, bottom, left의
+      값에 따라 오프셋을 적용한다. 오프셋은 다른 요소에 영향을 주지 않음
+      <br/>
+      <br/>
+      페이지 레이아웃에서 요소가 차지하는 공간은 static일 때와 같습니다.
+      </p>
+      
+      <h3>absolute</h3> 
+      <p>
+      요소를 일반적인 문서의 흐름에서 제거, 자기 자신을 기준으로 top, rigth, bottom, left의
+      값에 따라 오프셋을 적용한다. 오프셋은 다른 요소에 영향을 주지 않음
+      <br/>
+      <br/>
+      페이지 레이아웃에서 요소가 차지하는 공간은 static일 때와 같습니다.
+      </p>
+      
+      
+      fixed
+      sticky
+      
     </Post>
   );
 }

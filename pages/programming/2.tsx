@@ -1,5 +1,5 @@
 import Post from '../../components/post';
-import { GetStaticProps, NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next';
 
 interface Props {
   launch: {
@@ -10,9 +10,9 @@ interface Props {
   }
 }
 const IndexPage: NextPage<Props> = ({ launch }) => {
-  
-  if (typeof window !== "undefined") {
-    let preloadedState = window.__NEXT_DATA__.props;
+
+  if (typeof window !== 'undefined') {
+ let preloadedState = window.__NEXT_DATA__.props;
     console.log('preloadedState11', preloadedState);
   }
 
