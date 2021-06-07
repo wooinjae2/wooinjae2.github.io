@@ -1,18 +1,31 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useState, useEffect } from "react";
+import type { AppProps /* , AppContext */ } from "next/app";
+
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 
-function MyApp({ Component, pageProps }) {
-  const [menuList, setMenuList] = useState([]);
+interface child {
+  name: string;
+  link?: string;
+}
+
+interface Menu {
+  name: string;
+  children?: Array<child>;
+  active?: boolean;
+}
+
+function MyApp({ Component, pageProps }: AppProps) {
+  const [menuList, setMenuList] = useState<Menu[]>([]);
   console.log("layout render");
   useEffect(() => {
     setMenuList([
       {
         name: "programming",
         children: [
-          { name: "test", link: 1 },
-          { name: "ab", link: 2 },
+          { name: "test", link: "1" },
+          { name: "ab", link: "2" },
           { name: "ac" },
           { name: "ad" },
         ],
@@ -32,12 +45,12 @@ function MyApp({ Component, pageProps }) {
     ]);
   }, []);
 
-  const handleMenuClick = (clickIdx) => {
+  const handleMenuClick = (clickIdx: number) => {
     console.log(clickIdx);
     const newMenuList = menuList.map((menu, idx) => {
       if (idx === clickIdx) {
         return menu.active
-          ? { name: menu.name, children: [...menu.children], active: false }
+          ? { name: menu.name, children: menu.children, active: false }
           : {
               name: menu.name,
               children: menu.children ? [...menu.children] : [],

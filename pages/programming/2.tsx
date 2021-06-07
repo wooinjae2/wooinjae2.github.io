@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
-import Post from "../../components/post";
+import Post from "../../components/Post";
 
 interface Props {
   launch: {

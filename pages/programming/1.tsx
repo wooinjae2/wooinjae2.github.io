@@ -1,7 +1,6 @@
 import Post from "../../components/Post";
 
-export default function a(props) {
-  console.log(props);
+const FirstPage = () => {
   return (
     <Post title="CSS position" refList={["제로초 블로그"]}>
       <h3>static</h3>
@@ -30,4 +29,6 @@ export default function a(props) {
       fixed sticky
     </Post>
   );
-}
+};
+
+export default FirstPage;

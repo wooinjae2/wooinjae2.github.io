@@ -1,8 +1,14 @@
 import Post from "../components/Post";
 import styles from "../styles/Home.module.css";
 
-function Home(props) {
-  let preloadedState;
+interface Props {
+  data: {
+    name: string,
+  }
+}
+
+function Home(props: Props) {
+  let preloadedState: object = {};
   if (typeof window !== "undefined") {
     preloadedState = window.__NEXT_DATA__.props;
     console.log("asdasd");
