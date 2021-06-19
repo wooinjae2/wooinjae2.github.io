@@ -1,13 +1,14 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import Link from "next/link";
+import Link from 'next/link';
 
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import styles from "./leftPanel.module.css";
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import styles from './leftPanel.module.css';
 
 export default function leftPanel(props) {
-  console.log("props.menulist", props.menulist);
+  console.log('props.menulist', props.menulist);
 
   const handleMenuClick = (idx) => {
     props.handleMenuClick(idx);
@@ -21,9 +22,9 @@ export default function leftPanel(props) {
       return null;
     }
     return item.active ? (
-      <ExpandLessIcon style={{ fontSize: "15" }} classes={styles.padding} />
+      <ExpandLessIcon style={{ fontSize: '15' }} classes={styles.padding} />
     ) : (
-      <ExpandMoreIcon style={{ fontSize: "15" }} />
+      <ExpandMoreIcon style={{ fontSize: '15' }} />
     );
   };
 
@@ -34,19 +35,19 @@ export default function leftPanel(props) {
   return (
     <nav className={styles.nav}>
       <div className={styles.desc}>
-        <Link style={{ cursor: "pointer" }} href="/">
+        <Link style={{ cursor: 'pointer' }} href="/">
           <div className={styles.circle} />
         </Link>
         <h2>Injae Woo</h2>
         <div>
           <a
-            style={{ cursor: "pointer" }}
+            style={{ cursor: 'pointer' }}
             onClick={() => {
-              handleClickLinkIcon("https://github.com/wooinjae2");
+              handleClickLinkIcon('https://github.com/wooinjae2');
             }}
           >
-            {" "}
-            <GitHubIcon style={{ fontSize: "20" }} />
+            {' '}
+            <GitHubIcon style={{ fontSize: '20' }} />
           </a>
         </div>
       </div>
@@ -66,7 +67,7 @@ export default function leftPanel(props) {
                   </div>
                   <div
                     className={`${styles.transition} ${
-                      item.active ? styles.active : ""
+                      item.active ? styles.active : ''
                     } `}
                   >
                     <ul>
@@ -74,7 +75,11 @@ export default function leftPanel(props) {
                         ? item.children.map((child) => {
                             return (
                               <li key={child.name}>
-                                <Link href={`/${item.name}/${child.link}`}>
+                                <Link
+                                  href={`/${item.name.toLowerCase()}/${
+                                    child.link
+                                  }`}
+                                >
                                   {child.name}
                                 </Link>
                               </li>

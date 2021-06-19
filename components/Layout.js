@@ -1,5 +1,5 @@
-import styles from "./Layout.module.css";
-import LeftPanel from "./leftPanel";
+import styles from './Layout.module.css';
+import LeftPanel from './leftPanel';
 
 export default function Layout({ menulist, handleMenuClick, children }) {
   return (

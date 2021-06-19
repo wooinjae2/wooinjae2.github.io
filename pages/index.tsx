@@ -1,23 +1,22 @@
-import Post from "../components/Post";
-import styles from "../styles/Home.module.css";
+import Post from '../components/Post';
+import styles from '../styles/Home.module.css';
 
 interface Props {
   data: {
-    name: string,
-  }
+    name: string;
+  };
 }
 
 function Home(props: Props) {
-  let preloadedState: object = {};
-  if (typeof window !== "undefined") {
+  let preloadedState: Object = {};
+  if (typeof window !== 'undefined') {
     preloadedState = window.__NEXT_DATA__.props;
-    console.log("asdasd");
-    console.log("preloadedState11", preloadedState);
+    console.log('asdasd');
+    console.log('preloadedState11', preloadedState);
   }
 
-  console.log(preloadedState);
   function renderProps() {
-    console.log("renderProps22", preloadedState);
+    console.log('renderProps22', preloadedState);
 
     if (props && props.data) {
       return <div>{props.data.name}</div>;

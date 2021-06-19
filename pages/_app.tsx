@@ -1,9 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useState, useEffect } from "react";
-import type { AppProps /* , AppContext */ } from "next/app";
+import { useState, useEffect } from 'react';
+import type { AppProps } from 'next/app';
 
-import "../styles/globals.css";
-import Layout from "../components/Layout";
+import '../styles/globals.css';
+import '../styles/prism.css';
+import Layout from '../components/Layout';
 
 interface child {
   name: string;
@@ -18,29 +19,32 @@ interface Menu {
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [menuList, setMenuList] = useState<Menu[]>([]);
-  console.log("layout render");
+  console.log('layout render');
+
+  /**
+   * {
+        name: 'programming',
+        children: [
+          { name: 'test', link: '1' },
+          { name: 'ab', link: '2' },
+          { name: 'ac' },
+          { name: 'ad' },
+        ],
+      },
+   */
   useEffect(() => {
     setMenuList([
       {
-        name: "programming",
+        name: 'TIL',
         children: [
-          { name: "test", link: "1" },
-          { name: "ab", link: "2" },
-          { name: "ac" },
-          { name: "ad" },
+          { name: '20210619', link: '20210619' },
+          { name: 'bb' },
+          { name: 'bc' },
+          { name: 'bd' },
         ],
       },
       {
-        name: "TIL",
-        children: [
-          { name: "b" },
-          { name: "bb" },
-          { name: "bc" },
-          { name: "bd" },
-        ],
-      },
-      {
-        name: "메뉴3",
+        name: '메뉴3',
       },
     ]);
   }, []);
