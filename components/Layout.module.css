@@ -1,18 +1,15 @@
-
-
-.header{
-    background-color: brown;
-    height: 100vh;
+.header {
+  background-color: brown;
+  height: 100vh;
 }
-
 
 .mainItem {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
-@media screen and (max-width: 1000px){
-    .mainItem{
-        flex-direction: column;
-    }
+@media screen and (max-width: 600px) {
+  .mainItem {
+    flex-direction: column;
+  }
 }

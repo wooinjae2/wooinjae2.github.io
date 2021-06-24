@@ -16,8 +16,6 @@ function Home(props: Props) {
   }
 
   function renderProps() {
-    console.log('renderProps22', preloadedState);
-
     if (props && props.data) {
       return <div>{props.data.name}</div>;
     }
@@ -26,9 +24,10 @@ function Home(props: Props) {
   const renderPropsComp = renderProps();
   return (
     <div className={styles.container}>
-      <Post title="안녕하세요 monsterfairy2 블로그입니다.">메인페이지</Post>
+      <Post title="안녕하세요.">
+        공부한 것을 기록하고, 테스트 하기위해 만든 블로그 입니다.
+      </Post>
       {renderPropsComp}
-      ㅁㄴㅇㅁㄴㅇ
     </div>
   );
 }

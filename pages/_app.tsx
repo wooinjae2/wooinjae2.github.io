@@ -38,13 +38,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         name: 'TIL',
         children: [
           { name: '20210619', link: '20210619' },
-          { name: 'bb' },
-          { name: 'bc' },
-          { name: 'bd' },
+          { name: '20210620', link: '20210620' },
+          { name: '20210621', link: '20210621' },
         ],
       },
       {
-        name: '메뉴3',
+        name: 'Test',
       },
     ]);
   }, []);

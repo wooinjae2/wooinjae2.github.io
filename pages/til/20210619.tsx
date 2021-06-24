@@ -177,7 +177,7 @@ const doubleNumArray = numbers.map((num) => {
 console.log(numbers); // 1,2,3
 console.log(doubleNumArray);  // 2,4,6        
 
-array.filter
+array.filter()
 array.find()
 array.findIndex();
 array.filter();

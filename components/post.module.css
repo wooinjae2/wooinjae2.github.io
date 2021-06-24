@@ -42,13 +42,18 @@
   padding-left: 10px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 600px) {
   .post {
-    width: 90%;
+    width: 100%;
     margin: auto;
     margin-top: 50px;
-    margin-bottom: 50px;
+    min-width: 95%;
+    max-width: 95%;
+    font: 0.8em;
+    border: 3px solid #f8bbd0;
+
+    box-sizing: border-box;
+
     padding: 10px;
-    font: 0.9em;
   }
 }
