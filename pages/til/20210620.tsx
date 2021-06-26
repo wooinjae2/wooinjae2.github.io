@@ -4,7 +4,6 @@ import { highlight, languages } from 'prismjs/components/prism-core';
 import { useState } from 'react';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
-// import './prism.css';
 
 import Post from '../../components/Post';
 

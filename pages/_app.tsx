@@ -39,7 +39,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         children: [
           { name: '20210619', link: '20210619' },
           { name: '20210620', link: '20210620' },
-          { name: '20210621', link: '20210621' },
+          { name: '20210624', link: '20210624' },
         ],
       },
       {
