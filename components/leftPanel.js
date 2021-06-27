@@ -79,6 +79,7 @@ export default function leftPanel(props) {
                                   href={`/${item.name.toLowerCase()}/${
                                     child.link
                                   }`}
+                                  scroll={false}
                                 >
                                   {child.name}
                                 </Link>

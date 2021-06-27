@@ -23,6 +23,8 @@ const FirstPage = () => {
 
         <h3>Closure</h3>
         <p>
+          inner function 에서 외부의 모든 변수에 접근이 가능하다는 개념.
+          <br />
           Closure는 내부함수가 외부함수의 맥락(context)에 접근할 수 있는 것을
           가르킨다. javascript를 이용하는 고난이도의 테크닉을 구사하는데
           필수적인 개념으로 활용된다.

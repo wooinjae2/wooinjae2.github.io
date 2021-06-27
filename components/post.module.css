@@ -4,6 +4,7 @@
   min-width: 70%;
   max-width: 70%;
   padding: 80px;
+  word-break: break-all;
 }
 
 .postTitle > h2 {
