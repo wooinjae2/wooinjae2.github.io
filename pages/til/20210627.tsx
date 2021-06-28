@@ -1,7 +1,7 @@
 import Editor from 'react-simple-code-editor';
 
 import { highlight, languages } from 'prismjs/components/prism-core';
-import { useState } from 'react';
+
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 
@@ -10,7 +10,7 @@ import Post from '../../components/Post';
 const FirstPage = () => {
   return (
     <Post
-      title="JS"
+      title="let, const, var"
       refList={[
         'https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/',
       ]}
