@@ -42,11 +42,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           { name: '20210624', link: '20210624' },
           { name: '20210626', link: '20210626' },
           { name: '20210627', link: '20210627' },
+          { name: '20210628', link: '20210628' },
+          { name: '20210629', link: '20210629' },
         ],
       },
-      {
-        name: 'Test',
-      },
+      // {
+      //   name: 'Test',
+      // },
     ]);
   }, []);
 
