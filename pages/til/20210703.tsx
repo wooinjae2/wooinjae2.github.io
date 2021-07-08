@@ -35,7 +35,7 @@ const [isValid ,setIsValid] = useState(true);
 //2. dynamic classes
 <div className={\`form-control \${!isValid && 'invalid'}\`}>
 
-//3. styled component
+//3. styled component javascript에 의해 지원된다.
 import styled from 'styled-components';
 
 
@@ -60,7 +60,63 @@ const Button = styled.button\`
   border-color: #ac0e77;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
 }
+
+//4. media query
+@media (min-width: 768px){ //media query
+  width: auto;
+}
+
 \`
+
+//5. CSS Module .module.css형태의 css 파일생성
+// styles라는 이름으로 import를 한다음 css 파일의 class selector를 JSX엘리먼트의 className에 적용하면 각 class마다 유니크한 키값이 동적으로  
+// 생성되어 모듈마다 css파일을 분리해서 사용할 수 있다.
+
+/* Button.module.css
+
+.button {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #8b005d;
+  color: white;
+  background: #8b005d;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .button {
+    width: auto;
+  }
+}
+
+*/
+//js파일
+import styles from './Button.module.css';
+<button type={props.type} className={styles.button} onClick={props.onClick}>
+  {props.children}
+</button>
+
+//6. CSS Module 다른방법 
+/*
+CourseInput.module.css
+.form-control {
+  margin: 0.5rem 0;
+}
+
+.form-control.invalid {
+  color: red;
+}
+*/
+
+CourseInput.js
+import styles from './CourseInput.module.css';
+<div className={\`\${styles['form-control']} \${!isValid && styled.invalid}\`}>
+
 `}
             onValueChange={(value) => console.log(value)}
             highlight={(value) => highlight(value, languages.js)}
