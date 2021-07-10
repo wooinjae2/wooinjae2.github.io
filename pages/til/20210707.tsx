@@ -2,7 +2,7 @@ import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
-
+import Image from 'next/image';
 import Post from '../../components/Post';
 
 const FirstPage = () => {
@@ -138,7 +138,7 @@ export default TestComponent;
               fontSize: 12,
             }}
           />
-          <img src="../"
+          <Image src={'/portal.png'} width="500" height="auto" />
         </p>
       </>
     </Post>

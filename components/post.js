@@ -16,7 +16,7 @@ export default function Post(props) {
             <h2>출처</h2>
             {props.refList &&
               props.refList.map((ref) => {
-                return <div>{ref}</div>;
+                return <div key={ref}>{ref}</div>;
               })}
           </div>
         </>

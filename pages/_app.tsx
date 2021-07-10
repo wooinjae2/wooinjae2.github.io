@@ -46,6 +46,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           { name: '20210629', link: '20210629' },
           { name: '20210630', link: '20210630' },
           { name: '20210703', link: '20210703' },
+          { name: '20210705', link: '20210705' },
+          { name: '20210707', link: '20210707' },
         ],
       },
       // {
