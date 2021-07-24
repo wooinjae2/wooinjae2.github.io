@@ -1,0 +1,331 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><link rel="preload" href="https://wooinjae2.github.io/_next/static/css/ca5fadf321c6b878236a.css" as="style"/><link rel="stylesheet" href="https://wooinjae2.github.io/_next/static/css/ca5fadf321c6b878236a.css" data-n-g=""/><link rel="preload" href="https://wooinjae2.github.io/_next/static/css/e447c56e249ca7c001dd.css" as="style"/><link rel="stylesheet" href="https://wooinjae2.github.io/_next/static/css/e447c56e249ca7c001dd.css" data-n-p=""/><noscript data-n-css=""></noscript><link rel="preload" href="https://wooinjae2.github.io/_next/static/chunks/webpack-175dbf74a99c7c0fc100.js" as="script"/><link rel="preload" href="https://wooinjae2.github.io/_next/static/chunks/framework-4c1de57e3809422bb276.js" as="script"/><link rel="preload" href="https://wooinjae2.github.io/_next/static/chunks/597-00d454d0d2454c21d70f.js" as="script"/><link rel="preload" href="https://wooinjae2.github.io/_next/static/chunks/778-3f5210e580a48be30c3b.js" as="script"/><link rel="preload" href="https://wooinjae2.github.io/_next/static/chunks/main-9ca82ec4d4aca520c43d.js" as="script"/><link rel="preload" href="https://wooinjae2.github.io/_next/static/chunks/543-66815069e07689955050.js" as="script"/><link rel="preload" href="https://wooinjae2.github.io/_next/static/chunks/pages/_app-084906fd602abc09b02b.js" as="script"/><link rel="preload" href="https://wooinjae2.github.io/_next/static/chunks/806-7e6789e1fa63252b17ba.js" as="script"/><link rel="preload" href="https://wooinjae2.github.io/_next/static/chunks/pages/til/20210711-8f6735e0acaec39d449f.js" as="script"/></head><body><div id="__next"><main class="Layout_mainItem__DF8a2"><nav class="leftPanel_nav__3Pzde"><div class="leftPanel_desc__-MvGo"><div class="leftPanel_circle__r8PcS"></div><h2>Injae Woo</h2><div><a style="cursor:pointer"> <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="font-size:20"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg></a></div></div><div class="leftPanel_menuList__WnkuP"></div></nav><main><div class="post_post__1w2T3"><div class="post_postTitle__1Xc4J"><h2>React Complete Guide(Udemy)</h2></div><hr/><div class="post_postBody__2vtXs"><ul><li>Working With (Side)Effects</li><li>Managing more Complex State with Reducers</li><li>Managing App-Widte or Component-Wide State with Context</li></ul><p><strong>(Side) Effect란 무엇인가</strong>useEffect hook은 두개의 파라미터와 함께 호출된다.<br/>1번째는 함수, 2번째는 dependencies배열. 1 함수는 2번째 파라미터로 명시된 디펜던시의 변경이 일어날 경우 호출되는 함수이고, 2번째 배열은 첫번째 함수의 호출을 실행하기 위해 변경될 디펜던시<br/>clean up function<div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">
+
+return (
+  &lt;h2&gt;Hi there !&lt;/h2&gt;
+  &lt;p&gt;This does not work &lt;/p&gt;
+)
+
+return ( //Javascript의 한계와 같다. 2개의 값을 리턴하는것과 같다.
+  React.createElement(&#x27;h2&#x27;, {}, &#x27;Hi there!&#x27; )
+  React.createElement(&#x27;p&#x27;, {}, &#x27;This does not work&#x27; ) 
+)
+
+//해결법 1
+//div나 다른 element들로 wrapping할수 있지만 새로운 문제들이 발생한다.
+//필요없는 div들이 real DOM에 반영되어 너무 많은 HTMLElement를 렌더링, app을 느리게 만든다
+//또한 style을적용하기 위해 중첩된 셀렉터를 이용해야 한다거나
+//스타일을 깨뜨릴수 있다.
+return (
+  &lt;div&gt;
+    &lt;h2&gt;hi there!&lt;/h2&gt;
+    &lt;p&gt;this does not work&lt;/p&gt;
+  &lt;/div&gt;
+)
+
+//해결법2
+return [
+  &lt;div&gt;test1&lt;/div&gt;,
+  &lt;div&gt;test2&lt;/div&gt;
+]
+
+//해결법3 아무것도 rendering하지 않는 아래와 같은 wrapper component를 만들어 항상 루트로 리턴하게 하면 1개의 루트를 리턴하게 된다.
+//해결법 1처럼 필요하지 않은 element들을 생성하지 않아서 더 좋다.
+const Wrapper = props =&gt; {
+  return props.children;
+};
+export default Wrapper;
+
+
+//해결법4 해결법 3을 React에서 제공해 주는 Fragment를 이용한다.
+//&lt;&gt;&lt;/&gt; 또는 &lt;React.Fragment&gt;&lt;/React.Fragment&gt;를 루트 엘리먼트로 둔다.
+return &lt;&gt;
+  &lt;div&gt;test1&lt;/div&gt;
+&lt;/&gt;
+________________________________________
+&lt;React.Fragment&gt;
+  &lt;div&gt;test1&lt;/div&gt;
+&lt;/React.Fragment&gt;
+
+</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px">
+
+<span class="token keyword">return</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>h2<span class="token operator">></span>Hi there <span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
+  <span class="token operator">&lt;</span>p<span class="token operator">></span>This does not work <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">return</span> <span class="token punctuation">(</span> <span class="token comment">//Javascript의 한계와 같다. 2개의 값을 리턴하는것과 같다.</span>
+  React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'h2'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'Hi there!'</span> <span class="token punctuation">)</span>
+  React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'This does not work'</span> <span class="token punctuation">)</span> 
+<span class="token punctuation">)</span>
+
+<span class="token comment">//해결법 1</span>
+<span class="token comment">//div나 다른 element들로 wrapping할수 있지만 새로운 문제들이 발생한다.</span>
+<span class="token comment">//필요없는 div들이 real DOM에 반영되어 너무 많은 HTMLElement를 렌더링, app을 느리게 만든다</span>
+<span class="token comment">//또한 style을적용하기 위해 중첩된 셀렉터를 이용해야 한다거나</span>
+<span class="token comment">//스타일을 깨뜨릴수 있다.</span>
+<span class="token keyword">return</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>h2<span class="token operator">></span>hi there<span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token keyword">this</span> does not work<span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token punctuation">)</span>
+
+<span class="token comment">//해결법2</span>
+<span class="token keyword">return</span> <span class="token punctuation">[</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">></span>test1<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">,</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">></span>test2<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token punctuation">]</span>
+
+<span class="token comment">//해결법3 아무것도 rendering하지 않는 아래와 같은 wrapper component를 만들어 항상 루트로 리턴하게 하면 1개의 루트를 리턴하게 된다.</span>
+<span class="token comment">//해결법 1처럼 필요하지 않은 element들을 생성하지 않아서 더 좋다.</span>
+<span class="token keyword">const</span> <span class="token function-variable function">Wrapper</span> <span class="token operator">=</span> <span class="token parameter">props</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> props<span class="token punctuation">.</span>children<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> Wrapper<span class="token punctuation">;</span>
+
+
+<span class="token comment">//해결법4 해결법 3을 React에서 제공해 주는 Fragment를 이용한다.</span>
+<span class="token comment">//&lt;>&lt;/> 또는 &lt;React.Fragment>&lt;/React.Fragment>를 루트 엘리먼트로 둔다.</span>
+<span class="token keyword">return</span> <span class="token operator">&lt;</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>div<span class="token operator">></span>test1<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span>
+________________________________________
+<span class="token operator">&lt;</span>React<span class="token punctuation">.</span>Fragment<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div<span class="token operator">></span>test1<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>React<span class="token punctuation">.</span>Fragment<span class="token operator">></span>
+
+<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></p><hr/><p>useReducer<br/>state관리가 복잡할 경우 useReducer를 이용하면 state 관리를 더욱 편하게 할수 있다. 하지만 useReducer 자체가 조금 복잡하고, 버그를 만들수 있기 때문에 꼭 필요한 경우에 사용하는게 좋다.<br/><br/><br/><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">
+
+&lt;section&gt;
+  &lt;h2&gt;Some other content &lt;/h2&gt;
+  &lt;div class=&quot;my-modal&quot;&gt;
+    &lt;h2&gt;A Modal Title!&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;form&gt;
+    &lt;label&gt;UserName&lt;/label&gt;
+    &lt;input type=&quot;text&quot;/&gt;
+  &lt;/form&gt;
+&lt;/section&gt;
+
+
+//모달을 body 밑으로 옮기고 싶을 경우 
+//1.index.html에 id를 가진 div를 생성하고,
+//index.html
+&lt;body&gt;
+  &lt;div id=&quot;backdrop-root&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;overlay-root&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+
+
+TestComponent.js
+import ReactDOM from &#x27;react-dom&#x27;;
+
+const TestComponent = () =&gt;{
+  return (
+    &lt;React.Fragment&gt;
+      {ReactDOM.createPortal(&lt;Backdrop onClose={props.onClose} /&gt;, document.getElementById(&#x27;backdrop-root&#x27;))} //2번째 인자로 지정한 backdrop-root id를 가진 엘리먼트에 생성됨
+      {ReactDOM.createPortal(&lt;ModalOverlay title={props.title} message={props.message} onClose={props.onClose}/&gt;, document.getElementById(&#x27;overlay-root&#x27;))}
+    &lt;/React.Fragment&gt;
+  )
+}
+
+export default TestComponent;
+
+</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px">
+
+<span class="token operator">&lt;</span>section<span class="token operator">></span>
+  <span class="token operator">&lt;</span>h2<span class="token operator">></span>Some other content <span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"my-modal"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>h2<span class="token operator">></span><span class="token constant">A</span> Modal Title<span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+  <span class="token operator">&lt;</span>form<span class="token operator">></span>
+    <span class="token operator">&lt;</span>label<span class="token operator">></span>UserName<span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">></span>
+    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">/</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>form<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>section<span class="token operator">></span>
+
+
+<span class="token comment">//모달을 body 밑으로 옮기고 싶을 경우 </span>
+<span class="token comment">//1.index.html에 id를 가진 div를 생성하고,</span>
+<span class="token comment">//index.html</span>
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"backdrop-root"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"overlay-root"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"root"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
+
+
+TestComponent<span class="token punctuation">.</span>js
+<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">TestComponent</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>React<span class="token punctuation">.</span>Fragment<span class="token operator">></span>
+      <span class="token punctuation">{</span>ReactDOM<span class="token punctuation">.</span><span class="token function">createPortal</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>Backdrop onClose<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>onClose<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'backdrop-root'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token comment">//2번째 인자로 지정한 backdrop-root id를 가진 엘리먼트에 생성됨</span>
+      <span class="token punctuation">{</span>ReactDOM<span class="token punctuation">.</span><span class="token function">createPortal</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>ModalOverlay title<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>title<span class="token punctuation">}</span> message<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>message<span class="token punctuation">}</span> onClose<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>onClose<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'overlay-root'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>React<span class="token punctuation">.</span>Fragment<span class="token operator">></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> TestComponent<span class="token punctuation">;</span>
+
+<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></p><p>Rules of Hooks<ul><li>1. Only call React Hooks in React Function</li><li>2. Only call React Hook</li><li>3. useEffect : Always add everything you refer to inside of useEffect() as a dependency</li></ul><br/>useImperativeHandle &amp; forwardRef 부모에서 자식 컴포넌트의 ref의 접근이 필요한 경우가 있는데 이를 사용하기 위한 hook<div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">
+
+
+
+
+            import React, { useRef, useImperativeHandle } from &#x27;react&#x27;;
+            import classes from &#x27;./Input.module.css&#x27;;
+            
+            const Input = React.forwardRef((props, ref) =&gt; {
+               const inputRef = useRef();
+            
+               const activate = () =&gt; {
+                   inputRef.current.focus();
+               }
+            
+               useImperativeHandle(ref, ()=&gt;{
+                   return {
+                    activate: activate
+                   }
+               });
+              return &lt;div
+              className={`${classes.control} ${
+                props.isValid === false ? classes.invalid : &#x27;&#x27;
+              }`}
+            &gt;
+              &lt;label htmlFor={props.id}&gt;{props.label}&lt;/label&gt;
+              &lt;input
+                ref={inputRef}
+                type={props.type}
+                id={props.id}
+                value={props.value}
+                onChange={props.onChange}
+                onBlur={props.onBlur}
+              /&gt;
+            &lt;/div&gt;
+             
+            
+            })
+            
+            export default Input;
+</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px">
+
+
+
+
+            <span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useRef<span class="token punctuation">,</span> useImperativeHandle <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+            <span class="token keyword">import</span> classes <span class="token keyword">from</span> <span class="token string">'./Input.module.css'</span><span class="token punctuation">;</span>
+            
+            <span class="token keyword">const</span> Input <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">forwardRef</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> ref</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+               <span class="token keyword">const</span> inputRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            
+               <span class="token keyword">const</span> <span class="token function-variable function">activate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+                   inputRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token punctuation">}</span>
+            
+               <span class="token function">useImperativeHandle</span><span class="token punctuation">(</span>ref<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span>
+                   <span class="token keyword">return</span> <span class="token punctuation">{</span>
+                    activate<span class="token operator">:</span> activate
+                   <span class="token punctuation">}</span>
+               <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token keyword">return</span> <span class="token operator">&lt;</span>div
+              className<span class="token operator">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>classes<span class="token punctuation">.</span>control<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>
+                props<span class="token punctuation">.</span>isValid <span class="token operator">===</span> <span class="token boolean">false</span> <span class="token operator">?</span> classes<span class="token punctuation">.</span>invalid <span class="token operator">:</span> <span class="token string">''</span>
+              <span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span>
+            <span class="token operator">></span>
+              <span class="token operator">&lt;</span>label htmlFor<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>id<span class="token punctuation">}</span><span class="token operator">></span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>label<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">></span>
+              <span class="token operator">&lt;</span>input
+                ref<span class="token operator">=</span><span class="token punctuation">{</span>inputRef<span class="token punctuation">}</span>
+                type<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>type<span class="token punctuation">}</span>
+                id<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>id<span class="token punctuation">}</span>
+                value<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>value<span class="token punctuation">}</span>
+                onChange<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>onChange<span class="token punctuation">}</span>
+                onBlur<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>onBlur<span class="token punctuation">}</span>
+              <span class="token operator">/</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+             
+            
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            
+            <span class="token keyword">export</span> <span class="token keyword">default</span> Input<span class="token punctuation">;</span>
+<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></p></div><hr/><div class="post_reference__1-d9Y"><h2>출처</h2><div>React Complete Guide(Udemy)</div></div></div></main></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/til/20210711","query":{},"buildId":"zNkuIzj8Rd_QevhNxbU8V","assetPrefix":"https://wooinjae2.github.io","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="https://wooinjae2.github.io/_next/static/chunks/polyfills-8683bd742a84c1edd48c.js"></script><script src="https://wooinjae2.github.io/_next/static/chunks/webpack-175dbf74a99c7c0fc100.js" async=""></script><script src="https://wooinjae2.github.io/_next/static/chunks/framework-4c1de57e3809422bb276.js" async=""></script><script src="https://wooinjae2.github.io/_next/static/chunks/597-00d454d0d2454c21d70f.js" async=""></script><script src="https://wooinjae2.github.io/_next/static/chunks/778-3f5210e580a48be30c3b.js" async=""></script><script src="https://wooinjae2.github.io/_next/static/chunks/main-9ca82ec4d4aca520c43d.js" async=""></script><script src="https://wooinjae2.github.io/_next/static/chunks/543-66815069e07689955050.js" async=""></script><script src="https://wooinjae2.github.io/_next/static/chunks/pages/_app-084906fd602abc09b02b.js" async=""></script><script src="https://wooinjae2.github.io/_next/static/chunks/806-7e6789e1fa63252b17ba.js" async=""></script><script src="https://wooinjae2.github.io/_next/static/chunks/pages/til/20210711-8f6735e0acaec39d449f.js" async=""></script><script src="https://wooinjae2.github.io/_next/static/zNkuIzj8Rd_QevhNxbU8V/_buildManifest.js" async=""></script><script src="https://wooinjae2.github.io/_next/static/zNkuIzj8Rd_QevhNxbU8V/_ssgManifest.js" async=""></script></body></html>
