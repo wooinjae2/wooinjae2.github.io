@@ -2,7 +2,7 @@ import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Post from '../../components/Post';
 
 const FirstPage = () => {
@@ -78,7 +78,7 @@ ________________________________________
             }}
           />
         </p>
-        <hr></hr>
+        <hr />
         <p>
           Controlled vs Uncotrolled Conompoent
           <br />

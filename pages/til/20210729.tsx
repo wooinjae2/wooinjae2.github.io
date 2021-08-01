@@ -1,15 +1,25 @@
+import React from 'react';
 import Post from '../../components/Post';
 
-const FirstPage = () => {
+const Page = () => {
+  console.log();
+
   return (
     <Post
-      title="React Complete Guide(Udemy)"
+      title="React Complete Guide(Udemy) Custom Hooks"
       refList={['React Complete Guide(Udemy)']}
     >
       <>
-        <h2>Finding & Fixing Errors</h2>
+        <h2>Custom Hooks</h2>
         <p>
-          어떻게 스스로 에러를 찾고 해결하는지
+          Custom Hooks란 무엇인가? 재사용 가능한 stateful 함수
+          <br />
+          일반 함수들과는 다르게 다른 react hooks와 react state를 활용할 수
+          있다.
+          <br />
+          예를들어 2개의 컴포넌트가 있을때 하나의 컴포넌트는 +를 보여주고,
+          하나는 -를 보여줄때 그 두개의 로직은 +, -부분만 다르고 나머지 부분은
+          똑같을 것이다.
           <ol>
             <li>에러메시지의 이해</li>
             <li>
@@ -28,4 +38,4 @@ const FirstPage = () => {
   );
 };
 
-export default FirstPage;
+export default Page;

@@ -39,7 +39,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         children: [
           { name: '20210619', link: '20210619' },
           { name: '20210620', link: '20210620' },
-          { name: '20210624', link: '20210624' },
           { name: '20210626', link: '20210626' },
           { name: '20210627', link: '20210627' },
           { name: '20210628', link: '20210628' },
@@ -50,6 +49,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           { name: '20210707', link: '20210707' },
           { name: '20210711', link: '20210711' },
           { name: '20210718', link: '20210718' },
+          { name: 'closure', link: 'closure' },
+          { name: 'howtobrowserwork', link: 'howtobrowserwork' },
         ],
       },
       // {

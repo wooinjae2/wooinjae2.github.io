@@ -23,11 +23,65 @@ const FirstPage = () => {
 
         <h3>Closure</h3>
         <p>
-          inner function 에서 외부의 모든 변수에 접근이 가능하다는 개념.
+          Lexical scope
           <br />
-          Closure는 내부함수가 외부함수의 맥락(context)에 접근할 수 있는 것을
-          가르킨다. javascript를 이용하는 고난이도의 테크닉을 구사하는데
-          필수적인 개념으로 활용된다.
+          Scope란 프로그래밍에서 변수의 유효 범위를 나타내는 용어이다.
+          <br />
+          Javascript는 Lexical Scope를 따른다. Lexical Scope란 무엇일까?
+          <br />
+          함수를 어디에 선언하였는지에 따라 상위 스코프를 결정하는 것 여기서
+          중요한 것은 함수의 호출이 아니라 함수의 선언에 따라 결정된다.
+          <Editor
+            value={`
+var number = 1;
+function a() {
+  var number = 10;
+  b();
+}
+function b() {
+  console.log(number);
+}
+a(); // ?
+b(); // ?
+`}
+            onValueChange={(value) => setClassCode(value)}
+            highlight={(value) => highlight(value, languages.js)}
+            padding={10}
+            style={{
+              fontFamily: '"Fira code", "Fira Mono", monospace',
+              fontSize: 12,
+            }}
+          />
+          의 결과는 ?
+          <Editor
+            value={`
+1//a() 결과
+1//b() 결과
+`}
+            onValueChange={(value) => setClassCode(value)}
+            highlight={(value) => highlight(value, languages.js)}
+            padding={10}
+            style={{
+              fontFamily: '"Fira code", "Fira Mono", monospace',
+              fontSize: 12,
+            }}
+          />
+        </p>
+        <p>
+          Closure는 inner function 에서 외부의 모든 변수에 접근이 가능하다는
+          개념.
+          <br />
+          내부함수가 외부함수의 맥락(context)에 접근할 수 있는 것을 가르킨다.
+          Closure란 자신이 생성된 시점의 환경을 기억하는 함수
+          <br />
+          외부 함수 호출이 종료되었음에도 외부함수의 변수 or 인자에 접근 할 수
+          있는 함수.
+          <br />
+          Javascript는 Lexical Scope를 사용하며 이는 Scope를 선언된 위치를
+          기준으로 정한다고 위에서 말했습니다. 선언된 위치를 기준으로, 함수
+          내부에 선언된 inner 함수는 자신의 scope {'>'} 자신을 포함하는 외부
+          함수 scope(예제에선 outer) {'>'} 전역 scope 순으로 변수를 찾게됩니다.
+          따라서 x는 2의 값을 가지고 있습니다.
         </p>
         <Editor
           value={`
@@ -144,11 +198,16 @@ for(var index in funcArray){
           />
           이렇게 하면 0,1,2,3,4가 아니라 5만 5번 출력되게 되는데, i의 값이
           각각의 루프에서 변하며, 최종적으로 루프가 끝난뒤에 5라는 값을 가지고
-          있다. 그리고 return된 함수에서는 외부 스코프의 var키워드로 선언한 변수
-          i 참조하고 있기 때문이다. var 키워드로 선언한 i는 function scope이고
-          여기서는전역 변수로 선언되었고 이후 계속 참조를 하고 있기 때문에 이런
-          문제가 발생하며, 해결을 위해 아래 코드처럼 i값을 파라미터로 전달하여
-          함수의 copy된 로컬 변수로써 이용할 수 있다.
+          있다. <br />
+          그리고 return된 함수에서는 외부 스코프의 var키워드로 선언한 변수 i
+          참조하고 있기 때문이다. <br />
+          <br />
+          var 키워드로 선언한 i는 function scope이고 여기서는전역 변수로
+          선언되었고 이후 계속 참조를 하고 있기 때문에 이런 문제가 발생하며,
+          <br />
+          <br />
+          해결을 위해 아래 코드처럼 i값을 파라미터로 전달하여 함수의 copy된 로컬
+          변수로써 이용할 수 있다.
           <br />
           또는 for문의 i값을 블록스코프를 갖는 let 키워드를 통해 선언
         </p>

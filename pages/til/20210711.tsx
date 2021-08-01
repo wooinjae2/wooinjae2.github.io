@@ -2,7 +2,7 @@ import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Post from '../../components/Post';
 
 const FirstPage = () => {
@@ -84,7 +84,7 @@ ________________________________________
             }}
           />
         </p>
-        <hr></hr>
+        <hr />
         <p>
           useReducer
           <br />
@@ -92,12 +92,16 @@ ________________________________________
           할수 있다. 하지만 useReducer 자체가 조금 복잡하고, 버그를 만들수 있기
           때문에 꼭 필요한 경우에 사용하는게 좋다.
           <br />
-          React Context is Not optimized for high frequency changes
-          -> We'll explore a better tool for that, later.
-          <br/>
-          React Context also shouldn't be used to replace ALL component 
+          {
+            // "React Context is Not optimized for high frequency changes We'll explore a better tool for that, later."}
+          }
+          <br />
+          {/**
+             * React Context also shouldn't be used to replace ALL component 
           communication and props
           Component should still be configurable via props and short "prop chains" might not need any replacement
+             * 
+             */}
           <br />
           <Editor
             value={`
@@ -146,19 +150,21 @@ export default TestComponent;
               fontSize: 12,
             }}
           />
-          <Image src={'/portal.png'} width="500" height="auto" />
+          {/* <Image src="/portal.png" width="500" height="auto" /> */}
         </p>
         <p>
-          Rules of Hooks 
+          Rules of Hooks
           <ul>
             <li>1. Only call React Hooks in React Function</li>
             <li>2. Only call React Hook</li>
-            <li>3. useEffect : Always add everything you refer to inside of useEffect() as a dependency</li>
+            <li>
+              3. useEffect : Always add everything you refer to inside of
+              useEffect() as a dependency
+            </li>
           </ul>
-          <br/>
-          useImperativeHandle &  forwardRef
-          부모에서 자식 컴포넌트의 ref의 접근이 필요한 경우가 있는데 
-          이를 사용하기 위한 hook
+          <br />
+          useImperativeHandle & forwardRef 부모에서 자식 컴포넌트의 ref의 접근이
+          필요한 경우가 있는데 이를 사용하기 위한 hook
           <Editor
             value={`
 
@@ -215,4 +221,3 @@ export default TestComponent;
 };
 
 export default FirstPage;
-

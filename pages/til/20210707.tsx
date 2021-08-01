@@ -3,6 +3,7 @@ import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 import Image from 'next/image';
+// import portalImg from '../../public/portal.png';
 import Post from '../../components/Post';
 
 const FirstPage = () => {
@@ -77,7 +78,7 @@ ________________________________________
             }}
           />
         </p>
-        <hr></hr>
+        <hr />
         <p>
           Understanding React Portals
           <br />
@@ -138,7 +139,7 @@ export default TestComponent;
               fontSize: 12,
             }}
           />
-          <Image src={'/portal.png'} width="500" height="auto" />
+          {/* <Image src={portalImg} width="500" height="auto" /> */}
         </p>
       </>
     </Post>
