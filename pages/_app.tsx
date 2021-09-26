@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           { name: '20210711', link: '20210711' },
           { name: '20210718', link: '20210718' },
           { name: 'closure', link: 'closure' },
-          { name: 'howtobrowserwork', link: 'howtobrowserwork' },
+          { name: 'howbrowserworks', link: 'howbrowserworks' },
         ],
       },
       // {
